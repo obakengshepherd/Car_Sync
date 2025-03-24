@@ -9,3 +9,10 @@ section {
   padding: 20px;
   border-bottom: 1px solid #444;
 }
+.telemetry p {
+  font-size: 1.2em;
+  transition: all 0.5s ease; /* Smooth animation */
+}
+.telemetry p:hover {
+  color: #ff4444; /* Optional hover effect */
+}

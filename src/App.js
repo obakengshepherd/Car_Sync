@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <h1>CarSync: Ultimate Automotive Hub</h1>
-      <section>
+      <section className="telemetry">
         <h2>Telemetry Dashboard</h2>
         <p>Speed: {speed.toFixed(1)} km/h</p>
         <p>RPM: {rpm.toFixed(0)}</p>
@@ -33,4 +33,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
