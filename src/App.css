@@ -1,0 +1,11 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #1a1a1a;
+  color: #fff;
+  min-height: 100vh;
+}
+section {
+  padding: 20px;
+  border-bottom: 1px solid #444;
+}
