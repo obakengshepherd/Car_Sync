@@ -2,20 +2,29 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+// Action to update telemetry in Redux
+const updateTelemetry = (data) => ({
+  type: 'UPDATE_TELEMETRY',
+  payload: data[data.length - 1] || { speed: 0, rpm: 0 }, // Use latest entry
+});
+
 function App() {
   const dispatch = useDispatch();
   const { speed, rpm } = useSelector((state) => state.telemetry);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      dispatch({
-        type: 'UPDATE_TELEMETRY',
-        payload: {
-          speed: Math.random() * 100, // Mock speed (0-100 km/h)
-          rpm: Math.random() * 5000,  // Mock RPM (0-5000)
-        },
-      });
-    }, 1000); // Updates every second
+    const fetchTelemetry = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/telemetry');
+        const data = await response.json();
+        dispatch(updateTelemetry(data));
+      } catch (error) {
+        console.error('Error fetching telemetry:', error);
+      }
+    };
+
+    fetchTelemetry(); // Initial fetch
+    const interval = setInterval(fetchTelemetry, 5000); // Fetch every 5 seconds
     return () => clearInterval(interval); // Cleanup
   }, [dispatch]);
 
