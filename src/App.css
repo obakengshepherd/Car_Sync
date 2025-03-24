@@ -4,6 +4,9 @@
   background: #1a1a1a;
   color: #fff;
   min-height: 100vh;
+  display: flex; /* Flexbox for column layout */
+  flex-direction: column;
+  gap: 20px; /* Space between sections */
 }
 section {
   padding: 20px;
@@ -11,8 +14,20 @@ section {
 }
 .telemetry p {
   font-size: 1.2em;
-  transition: all 0.5s ease; /* Smooth animation */
+  transition: all 0.5s ease;
 }
 .telemetry p:hover {
-  color: #ff4444; /* Optional hover effect */
+  color: #ff4444;
+}
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .App {
+    gap: 10px; /* Smaller gaps on mobile */
+  }
+  section {
+    padding: 10px; /* Less padding on mobile */
+  }
+  .telemetry p {
+    font-size: 1em; /* Smaller text on mobile */
+  }
 }
