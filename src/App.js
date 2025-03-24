@@ -21,15 +21,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>CarSync: Ultimate Automotive Hub</h1>
-      <section className="telemetry">
+      <h1 className="mb-4">CarSync: Ultimate Automotive Hub</h1>
+      <section className="telemetry container bg-dark text-light p-3 rounded">
         <h2>Telemetry Dashboard</h2>
-        <p>Speed: {speed.toFixed(1)} km/h</p>
-        <p>RPM: {rpm.toFixed(0)}</p>
+        <div className="row">
+          <div className="col-md-6">
+            <p>Speed: {speed.toFixed(1)} km/h</p>
+          </div>
+          <div className="col-md-6">
+            <p>RPM: {rpm.toFixed(0)}</p>
+          </div>
+        </div>
       </section>
-      <section>ECU Mod Tracker</section>
-      <section>Car Show Planner</section>
-      <section>Dark Web Intel</section>
+      <section className="container mt-3">ECU Mod Tracker</section>
+      <section className="container mt-3">Car Show Planner</section>
+      <section className="container mt-3">Dark Web Intel</section>
     </div>
   );
 }
